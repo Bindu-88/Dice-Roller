@@ -1,7 +1,7 @@
 let rollDiceInput = document.querySelector("#roll-number");
 let rollButton = document.querySelector("#roll-dice");
 let ShowAllRolls = document.querySelector("#show-all-rolls");
-let total = document.querySelector("#sum");
+let total = document.querySelector("#total");
 let rollresults = document.querySelector("#roll-results");
 let resetButton = document.querySelector("#reset-button");
 let allRolls = [];
@@ -14,26 +14,31 @@ rollButton.addEventListener("click", function () {
   console.log(rollDiceInput.value);
   let maxRolls = Number(rollDiceInput.value);
   let count = 0;
+  let totalsum = 0;
   // rollDiceInput.value = "";
   while (count < maxRolls) {
-    allRolls.push(giveMeRandomNumber());
+    let x = giveMeRandomNumber();
+    allRolls.push(x);
+    totalsum += x;
     count++;
   }
-  console.log(allRolls.reduce((a, b) => a + b, 0));
+  total.innerHTML = totalsum;
+  // console.log(allRolls.reduce((a, b) => a + b, 0));
   console.log(allRolls);
 });
-
-sum.addEventListener("#click", function () {
-  console.log(sum);
-  let sum = 0;
-  rollDiceInput.innerHTML = rollNumber;
-  while (allRolls < rollDiceInput.rollButton.value) {
-    allRolls.push(sum());
-    sum++;
-    rollButton.innerHTML = rollDice;
-    sum.innerHTML = allRolls;
-  }
-});
+// total.addEventListener("click", function () {
+//   console.log(rollDiceInput.value);
+//   let maxRolls = Number(rollDiceInput.value);
+//   let total = 0;
+//   // rollDiceInput.value = "";
+//   while (total < maxRolls) {
+//     allRolls.push(giveMeRandomNumber());
+//     total++;
+//   }
+//   console.log(allRolls.reduce((a, b) => a + b, 0));
+//   console.log(allRolls);
+//   total.innerHTML = '<div id="total"> Total:_</div>';
+// });
 
 ShowAllRolls.addEventListener("click", function () {
   // console.log(ShowAllRolls);
